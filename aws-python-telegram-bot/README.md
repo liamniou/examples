@@ -22,14 +22,29 @@ This example demonstrates how to setup an echo Telegram Bot using the Serverless
 
 ### Installing
 ```
-# Install the Serverless Framework
-$ npm install serverless -g
+
+brew install node@14
+brew link --overwrite node@14
+
+brew install python3.7
+echo 'export PATH="/usr/local/opt/python@3.7/bin:$PATH"' >> ~/.zshrc
+
+npm install -g serverless@1.71.1
+
+npm install
+
+code ~/.aws/credentials
+>>>
+[ckl]
+aws_access_key_id = KEY_ID
+aws_secret_access_key = ACCESS_KEY
+
+serverless deploy
 
 # Install the necessary plugins
 $ npm install
 
 # Get a bot from Telegram, sending this message to @BotFather
-$ /newbot
 
 # Put the token received into a file called serverless.env.yml, like this
 $ cat serverless.env.yml
@@ -41,5 +56,3 @@ $ serverless deploy
 # With the URL returned in the output, configure the Webhook
 $ curl -X POST https://<your_url>.amazonaws.com/dev/set_webhook
 ```
-
-Now, just start a conversation with the bot :)
